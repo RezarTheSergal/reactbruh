@@ -1,110 +1,331 @@
-/* pages/TechnologyDetail.css */
+/* pages/TechnologyDetail.css - Детальная страница в стиле 2010-х */
 
-/* Стили для общей структуры страницы */
 .page {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(190, 160, 220, 0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid #e6d5eb;
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(135deg, var(--bg-content) 0%, var(--bg-card) 100%);
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  padding: 40px 20px;
+  margin: 0;
+  box-shadow: 
+    inset 0 0 30px rgba(111, 45, 189, 0.3),
+    0 0 40px var(--shadow-color),
+    0 8px 20px rgba(0, 0, 0, 0.6);
+  position: relative;
 }
 
 .page-header {
-    text-align: center;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e6d5eb;
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 3px double var(--border-color);
 }
 
 .page-header h1 {
-    margin: 0 0 10px 0;
-    color: #6a4c93;
-    font-size: 1.8em;
-    font-weight: 600;
+  margin: 0 0 15px 0;
+  color: var(--accent-purple);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 
+    0 0 10px var(--neon-purple),
+    0 0 20px var(--neon-purple),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px var(--neon-purple),
+      0 0 30px var(--neon-pink),
+      0 0 40px var(--neon-pink),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
 }
 
 .back-link {
-    display: inline-block;
-    margin-bottom: 15px;
-    color: #8e7ab5;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  padding: 12px 20px;
+  border: 3px solid var(--border-color);
+  background: var(--bg-input);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.back-link::before {
+  content: '◀';
+  font-size: 1.2em;
+  animation: arrowBounce 1s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
 }
 
 .back-link:hover {
-    color: #6a4c93;
-    background-color: rgba(216, 189, 224, 0.2);
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+  border-color: var(--accent-purple);
+  box-shadow: 
+    0 6px 20px var(--shadow-color),
+    0 0 25px var(--glow-color);
+  transform: translateX(-5px);
 }
 
+.back-link:focus {
+  outline: 3px solid var(--accent-purple);
+  outline-offset: 3px;
+}
+
+/* Контент детальной страницы */
 .technology-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .detail-section {
-    background-color: rgba(240, 230, 245, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #d8bde0;
+  background: linear-gradient(90deg, var(--bg-input) 0%, var(--bg-card) 100%);
+  padding: 30px;
+  border: 3px solid var(--border-color);
+  border-left: 8px solid var(--primary-purple);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(111, 45, 189, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.detail-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--neon-purple) 0%, 
+    var(--neon-pink) 50%, 
+    var(--neon-cyan) 100%);
+}
+
+.detail-section:hover {
+  border-left-color: var(--accent-purple);
+  box-shadow: 
+    0 6px 20px rgba(111, 45, 189, 0.6),
+    inset 0 0 40px rgba(224, 86, 253, 0.2);
 }
 
 .detail-section h3 {
-    margin: 0 0 15px 0;
-    color: #6a4c93;
-    font-size: 1.2em;
-    font-weight: 600;
+  margin: 0 0 20px 0;
+  color: var(--secondary-purple);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    0 0 8px var(--neon-cyan),
+    1px 1px 2px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-section h3::before {
+  content: '●';
+  color: var(--accent-purple);
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
 }
 
 .detail-section p {
-    margin: 0;
-    color: #8e7ab5;
-    line-height: 1.6;
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
+/* Кнопки статусов */
 .status-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .status-buttons button {
-    padding: 10px 16px;
-    border: 1px solid #d8bde0;
-    background-color: #f0e6f5;
-    color: #8e7ab5;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95em;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    min-width: 100px;
+  padding: 15px 25px;
+  border: 3px solid var(--border-color);
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  border-radius: 0;
+  cursor: pointer;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(111, 45, 189, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.status-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.status-buttons button:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .status-buttons button:hover {
-    background-color: #e0d0e9;
-    color: #6a4c93;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--primary-purple-dark) 100%);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+  box-shadow: 
+    0 6px 20px rgba(111, 45, 189, 0.5),
+    inset 0 0 30px rgba(155, 89, 208, 0.2);
+  transform: translateY(-3px);
+}
+
+.status-buttons button:focus {
+  outline: 3px solid var(--accent-purple);
+  outline-offset: 3px;
 }
 
 .status-buttons button.active {
-    background-color: #6a4c93;
-    color: white;
-    border-color: #6a4c93;
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+  color: var(--text-primary);
+  border-color: var(--accent-purple);
+  box-shadow: 
+    0 6px 20px var(--shadow-color),
+    inset 0 0 30px rgba(224, 86, 253, 0.3),
+    0 0 30px var(--glow-color);
+  font-weight: 900;
+}
+
+.status-buttons button.active::after {
+  content: '✓';
+  margin-left: 8px;
+  font-size: 1.2em;
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Специальные стили для разных статусов */
+.status-buttons button[data-status="completed"]:hover {
+  border-color: var(--status-completed);
+}
+
+.status-buttons button[data-status="completed"].active {
+  background: linear-gradient(135deg, #00cc66 0%, var(--status-completed) 100%);
+  border-color: var(--status-completed);
+  box-shadow: 
+    0 6px 20px rgba(0, 255, 136, 0.6),
+    0 0 30px rgba(0, 255, 136, 0.4);
+}
+
+.status-buttons button[data-status="in-progress"]:hover {
+  border-color: var(--status-progress);
+}
+
+.status-buttons button[data-status="in-progress"].active {
+  background: linear-gradient(135deg, #0099cc 0%, var(--status-progress) 100%);
+  border-color: var(--status-progress);
+  box-shadow: 
+    0 6px 20px rgba(0, 204, 255, 0.6),
+    0 0 30px rgba(0, 204, 255, 0.4);
+}
+
+.status-buttons button[data-status="not-started"]:hover {
+  border-color: var(--status-not-started);
+}
+
+.status-buttons button[data-status="not-started"].active {
+  background: linear-gradient(135deg, #7d5d8f 0%, var(--status-not-started) 100%);
+  border-color: var(--status-not-started);
+  box-shadow: 
+    0 6px 20px rgba(157, 123, 184, 0.6),
+    0 0 30px rgba(157, 123, 184, 0.4);
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .status-buttons {
-        flex-direction: column;
-    }
-    
-    .status-buttons button {
-        width: 100%;
-    }
+  .page {
+    padding: 30px 15px;
+  }
+  
+  .detail-section {
+    padding: 20px;
+  }
+  
+  .status-buttons {
+    flex-direction: column;
+  }
+  
+  .status-buttons button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 20px 10px;
+  }
+  
+  .detail-section {
+    padding: 15px;
+  }
+  
+  .back-link {
+    padding: 10px 15px;
+  }
 }

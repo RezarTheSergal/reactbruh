@@ -1,135 +1,126 @@
-/* Добавляем стили для body и #root, чтобы фон охватывал всю страницу */
-body {
+:root {
+  /* Основные фиолетовые тона */
+  --primary-purple: #6f2dbd;
+  --primary-purple-dark: #4a1a7f;
+  --primary-purple-light: #9b59d0;
+  --secondary-purple: #b565d8;
+  --accent-purple: #e056fd;
+  
+  /* Дополнительные цвета */
+  --bg-main: #1a0033;
+  --bg-content: #2d1b4e;
+  --bg-card: #3d2a5c;
+  --bg-input: #2a1845;
+  
+  /* Неоновые акценты (для эффекта 2010-х) */
+  --neon-purple: #da00ff;
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  
+  /* Текст */
+  --text-primary: #e8d7ff;
+  --text-secondary: #c9a7e8;
+  --text-muted: #9d7bb8;
+  --text-dark: #1a0033;
+  
+  /* Границы и тени */
+  --border-color: #6f2dbd;
+  --border-light: #8b4fd9;
+  --shadow-color: rgba(111, 45, 189, 0.4);
+  --glow-color: rgba(224, 86, 253, 0.6);
+  
+  /* Состояния */
+  --success: #00ff88;
+  --warning: #ffaa00;
+  --danger: #ff0055;
+  --info: #00ccff;
+  
+  /* Статусы задач */
+  --status-completed: #00ff88;
+  --status-progress: #00ccff;
+  --status-not-started: #9d7bb8;
+}
+
+/* Сброс стилей */
+* {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  /* Минимальная высота экрана */
-  background-image: url('./assets/background.jpg');
-  /* Путь к вашему изображению */
-  background-size: cover;
-  /* Изображение растягивается, чтобы заполнить контейнер */
-  background-position: center center;
-  /* Центрируем изображение */
-  background-repeat: no-repeat;
-  /* Запрещаем повторение */
-  background-attachment: fixed;
-  /* Фиксируем фон при прокрутке (по желанию) */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  line-height: 1.6;
+  box-sizing: border-box;
 }
 
-#root {
-  min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.0);
-  /* 0.7 */
-  /* Полупрозрачный фон для контента, если нужно */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-.app {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #333;
-  /* Убираем фон из .app, если он не нужен */
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  /* border-radius: 8px; */
-}
-
-.app-header {
-  text-align: center;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.app-header h1 {
-  margin: 0 0 10px 0;
-  color: #fff1ff;
-  font-size: 2em;
-}
-
-.app-header p {
-  margin: 0;
-  color: #704773;
-  font-size: 1.1em;
-}
-
-.app-main {
-  width: 100%;
-}
-
-.technologies-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Добавляем стили для body и #root, чтобы фон охватывал всю страницу */
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  /* Минимальная высота экрана */
-  background-image: url('./assets/background.jpg');
-  /* Путь к вашему изображению */
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  background-color: var(--bg-main);
+  background-image: 
+    linear-gradient(rgba(26, 0, 51, 0.85), rgba(26, 0, 51, 0.85)),
+    url('../assets/background.jpg');
   background-size: cover;
-  /* Изображение растягивается, чтобы заполнить контейнер */
-  background-position: center center;
-  /* Центрируем изображение */
-  background-repeat: no-repeat;
-  /* Запрещаем повторение */
   background-attachment: fixed;
-  /* Фиксируем фон при прокрутке (по желанию) */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-position: center;
+  color: var(--text-primary);
   line-height: 1.6;
-}
-
-#root {
   min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.0);
-  /* 0.7 */
-  /* Полупрозрачный фон для контента, если нужно */
 }
 
-.app {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #333;
-  /* Убираем фон из .app, если он не нужен */
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  /* border-radius: 8px; */
+/* Улучшенная доступность */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--accent-purple);
+  outline-offset: 2px;
 }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+/* Скрыть элементы только визуально (для скринридеров) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-.app-header h1 {
-  margin: 0 0 10px 0;
-  color: #fff1ff;
-  font-size: 2em;
+/* Повышенная контрастность для текста */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #ffffff;
+    --bg-content: #1a0033;
+    --border-color: #ffffff;
+  }
 }
 
-.app-header p {
-  margin: 0;
-  color: #704773;
-  font-size: 1.1em;
+/* Уменьшенное движение для пользователей с вестибулярными нарушениями */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.app-main {
-  width: 100%;
+/* Базовые стили для ссылок */
+a {
+  color: var(--secondary-purple);
+  text-decoration: underline;
 }
 
-.technologies-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+a:hover {
+  color: var(--accent-purple);
+}
+
+a:visited {
+  color: var(--primary-purple-light);
 }
