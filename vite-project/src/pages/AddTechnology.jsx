@@ -1,13 +1,13 @@
 // pages/AddTechnology.js
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './AddTechnology.css'; // Импортируем файл стилей (можно создать отдельно или использовать общие)
 
 function AddTechnology() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [status, setStatus] = useState('not-started');
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -48,7 +48,7 @@ function AddTechnology() {
         setStatus('not-started');
 
         // Перенаправляем на страницу списка технологий
-        // navigate('/technologies');
+        navigate('/technologies');
     };
 
     return (
@@ -56,7 +56,7 @@ function AddTechnology() {
             <div className="page-header">
                 <h1>Добавить новую технологию</h1>
                 <button
-                    // onClick={() => navigate('/technologies')}
+                    onClick={() => navigate('/technologies')}
                     className="btn btn-secondary"
                 >
                     ← Назад к списку
