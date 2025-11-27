@@ -1,61 +1,220 @@
-/* Убираем border-top из .notes-section, так как он теперь у .notes-wrapper */
+/* components/TechnologyNotes.css - Заметки в стиле 2010-х */
+
 .notes-section {
-    /* border-top: 1px dashed #d8bde0; */
-    /* УБРАНО */
-    margin-top: 0;
-    /* Отступ сверху убираем, так как теперь есть у .notes-wrapper */
-    padding-top: 0;
-    /* Или оставьте небольшой, если нужно отделить от .notes-wrapper */
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .notes-section h4 {
-    margin: 0 0 20px 0;
-    /* color: #f9d3fa; */
-    color: rgba(249, 211, 250, 0.8);
-    font-size: 1em;
-    font-weight: 600;
-    text-align: center;
+  margin: 0 0 20px 0;
+  color: var(--text-primary);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-pink),
+    2px 2px 4px rgba(0, 0, 0, 0.9);
+  position: relative;
+  padding-bottom: 15px;
 }
 
+.notes-section h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--neon-purple) 20%, 
+    var(--neon-pink) 50%, 
+    var(--neon-cyan) 80%, 
+    transparent 100%);
+  box-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Textarea в стиле 2010-х */
 .notes-section textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #d8bde0;
-    border-radius: 8px;
-    resize: vertical;
-    min-height: 100px;
-    /* Увеличена высота */
-    font-family: inherit;
-    font-size: 0.95em;
-    background-color: rgba(240, 230, 245, 0.5);
-    color: #6a4c93;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  resize: vertical;
+  min-height: 120px;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 0 0 var(--glow-color);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
 }
 
 .notes-section textarea::placeholder {
-    color: #8168a4;
-    /* Цвет плейсхолдера */
-    opacity: 0.8;
-    /* Прозрачность плейсхолдера */
+  color: var(--text-muted);
+  opacity: 0.8;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.notes-section textarea:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card);
 }
 
 .notes-section textarea:focus {
-    outline: none;
-    border-color: #a59bc8;
-    box-shadow: 0 0 0 2px rgba(165, 155, 200, 0.3);
+  outline: none;
+  border-color: var(--accent-purple);
+  background: var(--bg-card);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 20px var(--glow-color),
+    0 0 40px var(--shadow-color);
+  transform: scale(1.01);
 }
 
+/* Подсказка */
 .notes-hint {
-    margin-top: 6px;
-    font-size: 0.85em;
-    /* color: #a276e0; */
-    color: #ba91f5;
-    text-align: right;
-    transition: color 0.2s ease, opacity 0.2s ease;
+  margin-top: 10px;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  color: var(--text-secondary);
+  text-align: right;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-style: italic;
+  padding: 5px 10px;
+  background: rgba(111, 45, 189, 0.2);
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+  display: inline-block;
+  float: right;
+  position: relative;
+  overflow: hidden;
+}
+
+.notes-hint::before {
+  content: '💡';
+  margin-right: 5px;
+  animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .notes-hint:hover {
-    color: #fad1fc;
-    opacity: 0.8;
-    cursor: pointer;
+  color: var(--accent-purple);
+  background: rgba(224, 86, 253, 0.3);
+  border-color: var(--accent-purple);
+  cursor: pointer;
+  box-shadow: 
+    0 0 15px var(--glow-color),
+    inset 0 0 10px rgba(224, 86, 253, 0.2);
+  transform: translateX(-5px);
+}
+
+.notes-hint::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.notes-hint:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Счетчик символов (если добавите) */
+.notes-counter {
+  margin-top: 8px;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  color: var(--text-muted);
+  text-align: right;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  letter-spacing: 1px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .notes-section textarea {
+    padding: 12px;
+    min-height: 100px;
+  }
+  
+  .notes-hint {
+    float: none;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .notes-section h4 {
+    padding-bottom: 10px;
+  }
+  
+  .notes-section textarea {
+    padding: 10px;
+  }
+  
+  .notes-hint {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notes-section {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Стили для accessibility */
+.notes-section textarea[aria-label] {
+  /* Для скринридеров уже есть aria-label */
+}
+
+.notes-section textarea:invalid {
+  border-color: var(--danger);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 15px rgba(255, 0, 85, 0.5);
+}
+
+.notes-section textarea:valid:not(:placeholder-shown) {
+  border-color: var(--success);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 15px rgba(0, 255, 136, 0.3);
 }
