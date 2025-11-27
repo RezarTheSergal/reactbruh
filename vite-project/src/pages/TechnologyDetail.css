@@ -1,0 +1,110 @@
+/* pages/TechnologyDetail.css */
+
+/* Стили для общей структуры страницы */
+.page {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(190, 160, 220, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid #e6d5eb;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6d5eb;
+}
+
+.page-header h1 {
+    margin: 0 0 10px 0;
+    color: #6a4c93;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #8e7ab5;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    color: #6a4c93;
+    background-color: rgba(216, 189, 224, 0.2);
+}
+
+.technology-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.detail-section {
+    background-color: rgba(240, 230, 245, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #d8bde0;
+}
+
+.detail-section h3 {
+    margin: 0 0 15px 0;
+    color: #6a4c93;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.detail-section p {
+    margin: 0;
+    color: #8e7ab5;
+    line-height: 1.6;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.status-buttons button {
+    padding: 10px 16px;
+    border: 1px solid #d8bde0;
+    background-color: #f0e6f5;
+    color: #8e7ab5;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+.status-buttons button:hover {
+    background-color: #e0d0e9;
+    color: #6a4c93;
+}
+
+.status-buttons button.active {
+    background-color: #6a4c93;
+    color: white;
+    border-color: #6a4c93;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .status-buttons {
+        flex-direction: column;
+    }
+    
+    .status-buttons button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,61 @@
+/* Убираем border-top из .notes-section, так как он теперь у .notes-wrapper */
+.notes-section {
+    /* border-top: 1px dashed #d8bde0; */
+    /* УБРАНО */
+    margin-top: 0;
+    /* Отступ сверху убираем, так как теперь есть у .notes-wrapper */
+    padding-top: 0;
+    /* Или оставьте небольшой, если нужно отделить от .notes-wrapper */
+}
+
+.notes-section h4 {
+    margin: 0 0 20px 0;
+    /* color: #f9d3fa; */
+    color: rgba(249, 211, 250, 0.8);
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.notes-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d8bde0;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 100px;
+    /* Увеличена высота */
+    font-family: inherit;
+    font-size: 0.95em;
+    background-color: rgba(240, 230, 245, 0.5);
+    color: #6a4c93;
+    box-sizing: border-box;
+}
+
+.notes-section textarea::placeholder {
+    color: #8168a4;
+    /* Цвет плейсхолдера */
+    opacity: 0.8;
+    /* Прозрачность плейсхолдера */
+}
+
+.notes-section textarea:focus {
+    outline: none;
+    border-color: #a59bc8;
+    box-shadow: 0 0 0 2px rgba(165, 155, 200, 0.3);
+}
+
+.notes-hint {
+    margin-top: 6px;
+    font-size: 0.85em;
+    /* color: #a276e0; */
+    color: #ba91f5;
+    text-align: right;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.notes-hint:hover {
+    color: #fad1fc;
+    opacity: 0.8;
+    cursor: pointer;
+}

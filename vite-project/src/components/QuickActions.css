@@ -1,0 +1,110 @@
+/* components/QuickActions.css */
+.quick-actions {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(190, 160, 220, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid #e6d5eb;
+    position: relative;
+    z-index: 1;
+}
+
+.actions-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.action-button, .filter-button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-button {
+    background-color: #a59bc8; /* Светло-лиловый */
+    color: white;
+}
+
+.action-button:hover {
+    background-color: #6a4c93; /* Глубокий лиловый */
+    transform: translateY(-1px);
+}
+
+.action-button.mark-all {
+    background-color: #6a4c93; /* Глубокий лиловый */
+}
+
+.action-button.mark-all:hover {
+    background-color: #5a3d7d; /* Темнее глубокого лилового */
+}
+
+.action-button.reset-all {
+    background-color: #cc99cc; /* Фиолетово-розовый */
+}
+
+.action-button.reset-all:hover {
+    background-color: #b27fb2; /* Темнее фиолетово-розового */
+}
+
+.action-button.random-select {
+    background-color: #b37bb4; /* Розовый оттенок */
+}
+
+.action-button.random-select:hover {
+    background-color: #9a679a; /* Темнее розового оттенка */
+}
+
+.action-button.export-data {
+    background-color: #6a4c93; /* Глубокий лиловый */
+}
+
+.action-button.export-data:hover {
+    background-color: #5a3d7d; /* Темнее глубокого лилового */
+}
+
+.filter-button {
+    background-color: #f0e6f5; /* Светлый фон */
+    color: #8e7ab5; /* Приглушенный фиолетовый */
+    border: 1px solid #d8bde0;
+}
+
+.filter-button:hover {
+    background-color: #e0d0e9;
+    color: #6a4c93;
+}
+
+.filter-button.active {
+    background-color: #6a4c93; /* Глубокий лиловый */
+    color: white;
+    border-color: #6a4c93;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .actions-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

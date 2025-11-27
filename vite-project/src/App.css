@@ -1,0 +1,135 @@
+/* Добавляем стили для body и #root, чтобы фон охватывал всю страницу */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Минимальная высота экрана */
+  background-image: url('./assets/background.jpg');
+  /* Путь к вашему изображению */
+  background-size: cover;
+  /* Изображение растягивается, чтобы заполнить контейнер */
+  background-position: center center;
+  /* Центрируем изображение */
+  background-repeat: no-repeat;
+  /* Запрещаем повторение */
+  background-attachment: fixed;
+  /* Фиксируем фон при прокрутке (по желанию) */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.0);
+  /* 0.7 */
+  /* Полупрозрачный фон для контента, если нужно */
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  /* Убираем фон из .app, если он не нужен */
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border-radius: 8px; */
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.app-header h1 {
+  margin: 0 0 10px 0;
+  color: #fff1ff;
+  font-size: 2em;
+}
+
+.app-header p {
+  margin: 0;
+  color: #704773;
+  font-size: 1.1em;
+}
+
+.app-main {
+  width: 100%;
+}
+
+.technologies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Добавляем стили для body и #root, чтобы фон охватывал всю страницу */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Минимальная высота экрана */
+  background-image: url('./assets/background.jpg');
+  /* Путь к вашему изображению */
+  background-size: cover;
+  /* Изображение растягивается, чтобы заполнить контейнер */
+  background-position: center center;
+  /* Центрируем изображение */
+  background-repeat: no-repeat;
+  /* Запрещаем повторение */
+  background-attachment: fixed;
+  /* Фиксируем фон при прокрутке (по желанию) */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.0);
+  /* 0.7 */
+  /* Полупрозрачный фон для контента, если нужно */
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  /* Убираем фон из .app, если он не нужен */
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border-radius: 8px; */
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.app-header h1 {
+  margin: 0 0 10px 0;
+  color: #fff1ff;
+  font-size: 2em;
+}
+
+.app-header p {
+  margin: 0;
+  color: #704773;
+  font-size: 1.1em;
+}
+
+.app-main {
+  width: 100%;
+}
+
+.technologies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

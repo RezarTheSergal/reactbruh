@@ -1,0 +1,54 @@
+/* pages/Home.css */
+
+.page {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(190, 160, 220, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid #e6d5eb;
+}
+
+.page h1 {
+    color: #6a4c93;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page p {
+    color: #8e7ab5;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+.features {
+    margin-top: 20px;
+}
+
+.features h2 {
+    color: #6a4c93;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.features ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features li {
+    background-color: rgba(216, 189, 224, 0.2);
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #a59bc8;
+    color: #6a4c93;
+    font-size: 0.95em;
+}
+
+.features li:last-child {
+    margin-bottom: 0;
+}

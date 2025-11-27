@@ -1,0 +1,167 @@
+/* pages/Settings.css */
+
+/* Общие стили для страницы настроек */
+.page {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(190, 160, 220, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid #e6d5eb;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6d5eb;
+}
+
+.page-header h1 {
+    margin: 0 0 10px 0;
+    color: #6a4c93;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.page-header p {
+    margin: 0;
+    color: #8e7ab5;
+    font-size: 1.1em;
+}
+
+/* Стили для формы настроек */
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.setting-group {
+    background-color: rgba(240, 230, 245, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #d8bde0;
+}
+
+.setting-group h3 {
+    margin: 0 0 15px 0;
+    color: #6a4c93;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.setting-item {
+    margin-bottom: 15px;
+}
+
+.setting-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8e7ab5;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #6a4c93; /* Цвет галочки */
+    cursor: pointer;
+}
+
+.setting-item select {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid #d8bde0;
+    border-radius: 5px;
+    background-color: rgba(240, 230, 245, 0.5);
+    color: #6a4c93;
+    cursor: pointer;
+}
+
+.setting-item select:focus {
+    outline: none;
+    border-color: #a59bc8;
+    box-shadow: 0 0 0 2px rgba(165, 155, 200, 0.3);
+}
+
+.setting-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Стили для кнопок (аналогичные кнопкам в других файлах) */
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #a59bc8; /* Светло-лиловый */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #6a4c93; /* Глубокий лиловый */
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: #cc99cc; /* Фиолетово-розовый */
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #b27fb2; /* Темнее фиолетово-розового */
+    transform: translateY(-1px);
+}
+
+/* Стили для информационного блока */
+.app-info {
+    background-color: rgba(240, 230, 245, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #d8bde0;
+    text-align: center;
+    color: #8e7ab5;
+}
+
+.app-info h3 {
+    margin: 0 0 15px 0;
+    color: #6a4c93;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.app-info p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .setting-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
