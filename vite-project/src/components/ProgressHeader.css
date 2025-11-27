@@ -1,118 +1,410 @@
+/* components/ProgressHeader.css - Заголовок прогресса в стиле 2010-х */
+
 .progress-header {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(190, 160, 220, 0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid #e6d5eb;
+  background: linear-gradient(135deg, var(--bg-content) 0%, var(--bg-card) 100%);
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  padding: 30px 25px;
+  margin-bottom: 35px;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(111, 45, 189, 0.2);
+  backdrop-filter: blur(15px);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Декоративная неоновая рамка сверху */
+.progress-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--neon-purple) 0%, 
+    var(--neon-pink) 50%, 
+    var(--neon-cyan) 100%);
+  animation: colorShift 3s linear infinite;
+}
+
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Сканирующий эффект */
+.progress-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(224, 86, 253, 0.1), 
+    transparent);
+  animation: scan 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Заголовок */
 .progress-title {
-    margin: 0 0 20px 0;
-    text-align: center;
-    color: #6a4c93;
-    font-size: 1.5em;
-    font-weight: 600;
+  margin: 0 0 25px 0;
+  text-align: center;
+  color: var(--accent-purple);
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 
+    0 0 10px var(--neon-purple),
+    0 0 20px var(--neon-purple),
+    0 0 30px var(--neon-pink),
+    2px 2px 4px rgba(0, 0, 0, 0.9);
+  animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
+@keyframes titleGlow {
+  from {
+    text-shadow: 
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple),
+      0 0 30px var(--neon-pink),
+      2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+  to {
+    text-shadow: 
+      0 0 20px var(--neon-purple),
+      0 0 30px var(--neon-pink),
+      0 0 40px var(--neon-cyan),
+      2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Контейнер статистики */
 .stats-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
 }
 
+/* Элемент статистики */
 .stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, var(--bg-input) 0%, var(--bg-card) 100%);
+  border: 3px solid var(--border-color);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(111, 45, 189, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, 
+    var(--neon-purple), 
+    var(--neon-pink), 
+    var(--neon-cyan), 
+    var(--neon-purple));
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(8px);
+  animation: glowingBorder 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes glowingBorder {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.stat-item:hover::before {
+  opacity: 0.8;
+}
+
+.stat-item:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 8px 20px rgba(111, 45, 189, 0.6),
+    inset 0 0 30px rgba(224, 86, 253, 0.2);
 }
 
 .stat-label {
-    font-size: 0.9em;
-    color: #8e7ab5;
-    margin-bottom: 5px;
-    text-align: center;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .stat-value {
-    font-size: 1.4em;
-    font-weight: bold;
-    color: #6a4c93;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-shadow: 
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-pink),
+    2px 2px 4px rgba(0, 0, 0, 0.9);
+  animation: numberPulse 2s ease-in-out infinite;
 }
 
+@keyframes numberPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px var(--neon-cyan),
+      0 0 20px var(--neon-pink),
+      2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px var(--neon-cyan),
+      0 0 30px var(--neon-pink),
+      0 0 40px var(--neon-purple),
+      2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Контейнер прогресс-бара */
 .progress-bar-container {
-    width: 100%;
-    height: 30px;
-    background-color: #f0e6f5;
-    /* Светлый фон контейнера */
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid #d8bde0;
+  width: 100%;
+  height: 50px;
+  background: var(--bg-input);
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 10px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(111, 45, 189, 0.3);
 }
 
+/* Анимация shimmer на фоне */
+.progress-bar-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Прогресс-бар */
 .progress-bar {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: width 0.5s ease, background-color 0.5s ease;
-    position: relative;
-    font-weight: bold;
-    color: white;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    font-size: 0.85em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.5s ease;
+  position: relative;
+  font-weight: 900;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--text-primary);
+  text-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.9),
+    1px 1px 2px rgba(0, 0, 0, 1);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 
+    0 0 20px var(--glow-color),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+  z-index: 1;
 }
 
+/* Текст прогресса */
 .progress-text {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    left: 0;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
 }
 
-/* Цвета прогресс-бара */
+/* Цвета прогресс-бара в зависимости от прогресса */
 .progress-bar-empty {
-    background-color: #cc99cc;
-    /* Фиолетово-розовый */
-    width: 0%;
-    /* Явно указываем 0% для анимации */
+  background: linear-gradient(90deg, 
+    #990044 0%, 
+    #cc0077 100%);
+  width: 0%;
+  animation: progressPulse 2s ease-in-out infinite;
 }
 
 .progress-bar-medium {
-    background-color: #b37bb4;
-    /* Розовый оттенок */
+  background: linear-gradient(90deg, 
+    #7700cc 0%, 
+    #9933ff 50%, 
+    #bb66ff 100%);
+  animation: progressPulse 2s ease-in-out infinite;
 }
 
 .progress-bar-high {
-    background-color: #a59bc8;
-    /* Светло-лиловый */
+  background: linear-gradient(90deg, 
+    var(--primary-purple) 0%, 
+    var(--secondary-purple) 50%, 
+    var(--accent-purple) 100%);
+  animation: progressPulse 2s ease-in-out infinite;
 }
 
 .progress-bar-full {
-    background-color: #6a4c93;
-    /* Глубокий лиловый */
+  background: linear-gradient(90deg, 
+    var(--primary-purple-dark) 0%, 
+    var(--primary-purple) 50%, 
+    var(--accent-purple) 100%);
+  animation: progressPulse 2s ease-in-out infinite;
+  box-shadow: 
+    0 0 30px var(--glow-color),
+    inset 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes progressPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px var(--glow-color),
+      inset 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px var(--glow-color),
+      0 0 40px var(--shadow-color),
+      inset 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Движущиеся полосы на прогресс-баре */
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
+  animation: barberPole 1s linear infinite;
+  z-index: 1;
+}
+
+@keyframes barberPole {
+  0% { background-position: 0 0; }
+  100% { background-position: 28px 0; }
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .stats-container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .progress-header {
+    padding: 25px 20px;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    .stat-item {
-        flex-direction: row;
-        gap: 10px;
-        width: 100%;
-        justify-content: space-between;
-    }
+  .stat-item {
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+    min-width: 0;
+  }
+  
+  .stat-label {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  
+  .stat-value {
+    text-align: right;
+  }
 
-    .progress-title {
-        font-size: 1.3em;
-    }
+  .progress-title {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+  
+  .progress-bar-container {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-header {
+    padding: 20px 15px;
+  }
+  
+  .stat-item {
+    padding: 12px 15px;
+  }
+  
+  .progress-bar-container {
+    height: 35px;
+  }
+  
+  .progress-bar {
+    font-size: 0.8rem;
+  }
+}
+
+/* Анимация появления */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.progress-header {
+  animation: slideInFromTop 0.6s ease-out;
+}
+
+/* Accessibility */
+.progress-bar[role="progressbar"] {
+  /* ARIA attributes handled in JS */
+}
+
+.stat-item:focus-within {
+  outline: 3px solid var(--accent-purple);
+  outline-offset: 3px;
 }
