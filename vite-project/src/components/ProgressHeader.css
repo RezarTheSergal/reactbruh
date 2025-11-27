@@ -399,11 +399,6 @@
   animation: slideInFromTop 0.6s ease-out;
 }
 
-/* Accessibility */
-.progress-bar[role="progressbar"] {
-  /* ARIA attributes handled in JS */
-}
-
 .stat-item:focus-within {
   outline: 3px solid var(--accent-purple);
   outline-offset: 3px;
