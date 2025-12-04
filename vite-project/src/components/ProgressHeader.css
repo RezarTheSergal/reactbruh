@@ -26,12 +26,6 @@
     var(--neon-purple) 0%, 
     var(--neon-pink) 50%, 
     var(--neon-cyan) 100%);
-  animation: colorShift 3s linear infinite;
-}
-
-@keyframes colorShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
 }
 
 /* Сканирующий эффект */

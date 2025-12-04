@@ -104,12 +104,6 @@
 .notes-hint::before {
   content: '💡';
   margin-right: 5px;
-  animation: flicker 2s ease-in-out infinite;
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
 }
 
 .notes-hint:hover {

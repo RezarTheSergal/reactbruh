@@ -33,11 +33,6 @@
   animation: searchGlow 3s linear infinite;
 }
 
-@keyframes searchGlow {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
 /* Сканирующая линия */
 .search-box::after {
   content: '';
@@ -240,12 +235,6 @@
     0 0 10px var(--danger),
     1px 1px 2px rgba(0, 0, 0, 0.9);
   animation: shake 0.5s ease-in-out;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  75% { transform: translateX(10px); }
 }
 
 /* Адаптивность */
