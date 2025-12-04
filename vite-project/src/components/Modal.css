@@ -1,142 +1,47 @@
-/* components/Modal.css - Модальное окно в стиле 2010-х */
-
+/* components/Modal.css */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle, 
-    rgba(111, 45, 189, 0.5) 0%, 
-    rgba(26, 0, 51, 0.9) 100%);
-  backdrop-filter: blur(10px);
+  background: rgba(26, 0, 51, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .modal-content {
-  background: linear-gradient(135deg, var(--bg-content) 0%, var(--bg-card) 100%);
+  background: var(--bg-content);
   border: 3px solid var(--border-color);
   border-radius: 0;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.9),
-    0 0 60px var(--glow-color),
-    inset 0 0 30px rgba(111, 45, 189, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   width: 90%;
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  z-index: 10001;
-  animation: modalSlideIn 0.4s ease-out;
 }
 
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Декоративная неоновая рамка */
-.modal-content::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: linear-gradient(45deg, 
-    var(--neon-purple), 
-    var(--neon-pink), 
-    var(--neon-cyan), 
-    var(--neon-purple));
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(15px);
-  animation: glowingBorder 3s linear infinite;
-  opacity: 0.7;
-}
-
-@keyframes glowingBorder {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
-}
-
-/* Заголовок модального окна */
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 25px;
   border-bottom: 3px solid var(--border-color);
-  background: linear-gradient(90deg, 
-    var(--bg-input) 0%, 
-    var(--bg-card) 100%);
-  position: relative;
-}
-
-.modal-header::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    var(--neon-purple) 0%, 
-    var(--neon-pink) 50%, 
-    var(--neon-cyan) 100%);
+  background: var(--bg-input);
 }
 
 .modal-header h3 {
   margin: 0;
   color: var(--accent-purple);
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 
-    0 0 10px var(--neon-purple),
-    0 0 20px var(--neon-pink),
-    2px 2px 4px rgba(0, 0, 0, 0.9);
-  animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
-@keyframes titleGlow {
-  from {
-    text-shadow: 
-      0 0 10px var(--neon-purple),
-      0 0 20px var(--neon-pink),
-      2px 2px 4px rgba(0, 0, 0, 0.9);
-  }
-  to {
-    text-shadow: 
-      0 0 20px var(--neon-purple),
-      0 0 30px var(--neon-pink),
-      0 0 40px var(--neon-cyan),
-      2px 2px 4px rgba(0, 0, 0, 0.9);
-  }
-}
-
-/* Кнопка закрытия */
 .modal-close-btn {
   background: var(--bg-input);
   border: 3px solid var(--border-color);
@@ -149,217 +54,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 15px rgba(111, 45, 189, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.modal-close-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.modal-close-btn:hover::before {
-  width: 80px;
-  height: 80px;
 }
 
 .modal-close-btn:hover {
-  background: linear-gradient(135deg, var(--danger) 0%, #ff3377 100%);
+  background: var(--danger);
   color: var(--text-primary);
   border-color: var(--danger);
-  box-shadow: 
-    0 6px 20px rgba(255, 0, 85, 0.6),
-    0 0 30px rgba(255, 0, 85, 0.4);
-  transform: rotate(90deg);
 }
 
-.modal-close-btn:focus {
-  outline: 3px solid var(--accent-purple);
-  outline-offset: 3px;
-}
-
-.modal-close-btn:active {
-  transform: rotate(90deg) scale(0.9);
-}
-
-/* Тело модального окна */
 .modal-body {
   padding: 25px;
   color: var(--text-primary);
   line-height: 1.7;
 }
 
-.modal-body p {
-  margin: 0 0 15px 0;
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
-  letter-spacing: 0.5px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-}
-
-/* Кнопка закрытия внизу */
 .modal-close-button {
   padding: 15px 30px;
-  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+  background: var(--primary-purple);
   color: var(--text-primary);
   border: 3px solid var(--border-light);
   border-radius: 0;
   cursor: pointer;
-  font-family: 'Courier New', 'Lucida Console', monospace;
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 20px;
   width: 100%;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(111, 45, 189, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.modal-close-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.modal-close-button:hover::before {
-  width: 400px;
-  height: 400px;
 }
 
 .modal-close-button:hover {
-  background: linear-gradient(135deg, var(--secondary-purple) 0%, var(--accent-purple) 100%);
-  box-shadow: 
-    0 6px 20px var(--shadow-color),
-    0 0 30px var(--glow-color);
-  transform: translateY(-3px);
-}
-
-.modal-close-button:focus {
-  outline: 3px solid var(--accent-purple);
-  outline-offset: 3px;
-}
-
-.modal-close-button:active {
-  transform: translateY(0);
-  box-shadow: 
-    0 2px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(111, 45, 189, 0.3);
-}
-
-/* Кастомный скроллбар для модального окна */
-.modal-content::-webkit-scrollbar {
-  width: 12px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background: var(--bg-input);
-  border-left: 2px solid var(--border-color);
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
-  border: 2px solid var(--border-color);
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--accent-purple) 0%, var(--neon-pink) 100%);
-  box-shadow: 0 0 10px var(--glow-color);
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 95%;
-    max-width: none;
-  }
-  
-  .modal-header {
-    padding: 15px 20px;
-  }
-  
-  .modal-body {
-    padding: 20px;
-  }
-  
-  .modal-close-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 1.3em;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-header {
-    padding: 12px 15px;
-  }
-  
-  .modal-body {
-    padding: 15px;
-  }
-  
-  .modal-close-button {
-    padding: 12px 20px;
-  }
-}
-
-/* Закрытие по клику на overlay */
-.modal-overlay[data-closable="true"] {
-  cursor: pointer;
-}
-
-.modal-content {
-  cursor: default;
-}
-
-/* Анимация закрытия */
-.modal-overlay.closing {
-  animation: fadeOut 0.3s ease-out forwards;
-}
-
-.modal-overlay.closing .modal-content {
-  animation: modalSlideOut 0.3s ease-out forwards;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes modalSlideOut {
-  from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.9);
-  }
+  background: var(--secondary-purple);
 }

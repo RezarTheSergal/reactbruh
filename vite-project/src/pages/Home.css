@@ -1,86 +1,33 @@
-/* pages/Home.css - Стиль 2010-х с доступностью */
-
+/* pages/Home.css */
 .page {
   width: 100%;
   max-width: 100%;
-  background: linear-gradient(135deg, var(--bg-content) 0%, var(--bg-card) 100%);
+  background: var(--bg-content);
   border: 3px solid var(--border-color);
   border-radius: 0;
   padding: 40px 20px;
   margin: 0;
-  box-shadow: 
-    inset 0 0 30px rgba(111, 45, 189, 0.3),
-    0 0 40px var(--shadow-color),
-    0 8px 20px rgba(0, 0, 0, 0.6);
   position: relative;
   overflow: hidden;
-}
-
-/* Эффект сканирования (типичный для сайтов 2010-х) */
-.page::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(111, 45, 189, 0.03) 2px,
-    rgba(111, 45, 189, 0.03) 4px
-  );
-  pointer-events: none;
-  animation: scan 8s linear infinite;
-}
-
-@keyframes scan {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50%); }
 }
 
 .page h1 {
   color: var(--accent-purple);
   text-align: center;
   margin-bottom: 30px;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: 4px;
-  text-shadow: 
-    0 0 10px var(--neon-purple),
-    0 0 20px var(--neon-purple),
-    0 0 30px var(--neon-pink),
-    2px 2px 4px rgba(0, 0, 0, 0.8);
   font-weight: 900;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 
-      0 0 10px var(--neon-purple),
-      0 0 20px var(--neon-purple),
-      0 0 30px var(--neon-pink),
-      2px 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  to {
-    text-shadow: 
-      0 0 20px var(--neon-purple),
-      0 0 30px var(--neon-pink),
-      0 0 40px var(--neon-pink),
-      2px 2px 4px rgba(0, 0, 0, 0.8);
-  }
 }
 
 .page p {
   color: var(--text-secondary);
   text-align: center;
   margin-bottom: 40px;
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-size: 1.2rem;
   line-height: 1.8;
   padding: 0 20px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .features {
@@ -92,12 +39,9 @@
   color: var(--secondary-purple);
   text-align: center;
   margin-bottom: 30px;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: 2.2rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 
-    0 0 10px var(--neon-cyan),
-    2px 2px 4px rgba(0, 0, 0, 0.8);
   border-bottom: 3px solid var(--border-color);
   padding-bottom: 15px;
 }
@@ -112,17 +56,14 @@
 }
 
 .features li {
-  background: linear-gradient(90deg, var(--bg-input) 0%, var(--bg-card) 100%);
+  background: var(--bg-input);
   padding: 20px 25px;
   border: 2px solid var(--border-light);
   border-left: 8px solid var(--primary-purple);
   color: var(--text-primary);
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-size: 1.05rem;
   position: relative;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(111, 45, 189, 0.1);
 }
 
 .features li::before {
@@ -136,37 +77,18 @@
 .features li:hover {
   transform: translateX(10px);
   border-left-color: var(--accent-purple);
-  box-shadow: 
-    0 6px 20px rgba(111, 45, 189, 0.6),
-    inset 0 0 30px rgba(224, 86, 253, 0.2);
 }
 
-.features li:focus-within {
-  outline: 3px solid var(--accent-purple);
-  outline-offset: 3px;
-}
-
-/* Адаптивность */
 @media (max-width: 768px) {
   .page {
     padding: 30px 15px;
   }
   
   .page h1 {
-    letter-spacing: 2px;
+    font-size: 2.5rem;
   }
   
   .features li {
     padding: 15px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .page {
-    padding: 20px 10px;
-  }
-  
-  .features h2 {
-    letter-spacing: 2px;
   }
 }

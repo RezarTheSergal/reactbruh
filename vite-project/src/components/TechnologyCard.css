@@ -1,19 +1,15 @@
-/* components/TechnologyCard.css - Карточка технологии в стиле 2010-х */
-
+/* components/TechnologyCard.css */
 .technology-card {
   border: 3px solid var(--border-color);
   border-radius: 0;
   padding: 25px;
   margin: 20px 0;
-  background: linear-gradient(135deg, var(--bg-input) 0%, var(--bg-card) 100%);
-  box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.6),
-    inset 0 0 30px rgba(111, 45, 189, 0.1);
+  background: var(--bg-input);
   transition: all 0.3s ease;
-  backdrop-filter: blur(15px);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 /* Декоративная линия сверху */
@@ -34,29 +30,16 @@
 
 .technology-card:hover::before {
   opacity: 1;
-  animation: shimmer 1.5s linear infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
 }
 
 .technology-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 
-    0 8px 25px rgba(111, 45, 189, 0.8),
-    inset 0 0 40px rgba(224, 86, 253, 0.2),
-    0 0 40px var(--glow-color);
+  transform: translateY(-5px) scale(0.98);
   border-color: var(--accent-purple);
 }
 
 .technology-card:active {
   transform: scale(0.98);
   opacity: 0.95;
-  box-shadow: 
-    0 2px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(111, 45, 189, 0.2);
 }
 
 .technology-card:focus-within {
@@ -68,13 +51,10 @@
 .card-title {
   margin: 0 0 15px 0;
   color: var(--secondary-purple);
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 
-    0 0 10px var(--neon-cyan),
-    1px 1px 2px rgba(0, 0, 0, 0.8);
   position: relative;
   padding-left: 20px;
 }
@@ -91,9 +71,8 @@
   margin: 0 0 20px 0;
   color: var(--text-primary);
   line-height: 1.7;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-size: 1rem;
   letter-spacing: 0.5px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* Блок статуса */
@@ -102,34 +81,13 @@
   align-items: center;
   gap: 12px;
   font-weight: 900;
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-size: 0.95rem;
   padding: 10px 20px;
   border: 3px solid var(--border-color);
   width: fit-content;
   background: var(--bg-input);
-  box-shadow: 
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 15px rgba(111, 45, 189, 0.2);
   position: relative;
   overflow: hidden;
-}
-
-.card-status::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(255, 255, 255, 0.2), 
-    transparent);
-  transition: left 0.5s ease;
-}
-
-.card-status:hover::before {
-  left: 100%;
 }
 
 .status-icon {
@@ -137,7 +95,6 @@
   height: 24px;
   object-fit: contain;
   transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 5px currentColor);
 }
 
 .status-icon:hover {
@@ -147,9 +104,6 @@
 .status-text {
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 
-    0 0 8px currentColor,
-    1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* Область заметок */
@@ -159,42 +113,8 @@
   margin-top: 20px;
   position: relative;
   z-index: 1;
-  background: 
-    linear-gradient(rgba(111, 45, 189, 0.6), rgba(61, 42, 92, 0.9)),
-    url('../assets/forest.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: rgba(111, 45, 189, 0.6);
   border: 3px solid var(--border-color);
-  box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.6),
-    inset 0 0 30px rgba(224, 86, 253, 0.3);
-}
-
-/* Декоративная рамка для заметок */
-.notes-wrapper::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: linear-gradient(45deg, 
-    var(--neon-purple), 
-    var(--neon-pink), 
-    var(--neon-cyan), 
-    var(--neon-purple));
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(10px);
-  animation: glowingBorder 3s linear infinite;
-  opacity: 0.5;
-}
-
-@keyframes glowingBorder {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
 }
 
 /* Стили для разных статусов */
@@ -203,14 +123,9 @@
 }
 
 .status-completed .card-status {
-  background: linear-gradient(135deg, 
-    rgba(0, 204, 102, 0.3) 0%, 
-    rgba(0, 255, 136, 0.2) 100%);
+  background: rgba(0, 204, 102, 0.3);
   color: var(--status-completed);
   border-color: var(--status-completed);
-  box-shadow: 
-    0 4px 10px rgba(0, 255, 136, 0.4),
-    inset 0 0 20px rgba(0, 255, 136, 0.1);
 }
 
 .status-completed .status-text {
@@ -222,14 +137,9 @@
 }
 
 .status-in-progress .card-status {
-  background: linear-gradient(135deg, 
-    rgba(0, 153, 204, 0.3) 0%, 
-    rgba(0, 204, 255, 0.2) 100%);
+  background: rgba(0, 153, 204, 0.3);
   color: var(--status-progress);
   border-color: var(--status-progress);
-  box-shadow: 
-    0 4px 10px rgba(0, 204, 255, 0.4),
-    inset 0 0 20px rgba(0, 204, 255, 0.1);
 }
 
 .status-in-progress .status-text {
@@ -241,14 +151,9 @@
 }
 
 .status-not-started .card-status {
-  background: linear-gradient(135deg, 
-    rgba(125, 93, 143, 0.3) 0%, 
-    rgba(157, 123, 184, 0.2) 100%);
+  background: rgba(125, 93, 143, 0.3);
   color: var(--status-not-started);
   border-color: var(--status-not-started);
-  box-shadow: 
-    0 4px 10px rgba(157, 123, 184, 0.4),
-    inset 0 0 20px rgba(157, 123, 184, 0.1);
 }
 
 .status-not-started .status-text {
@@ -264,6 +169,7 @@
   
   .card-title {
     padding-left: 15px;
+    font-size: 1.2rem;
   }
   
   .card-status {
@@ -282,7 +188,19 @@
     padding: 15px;
   }
   
+  .card-title {
+    font-size: 1.1rem;
+  }
+  
   .card-title::before {
     font-size: 0.9em;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+  }
+  
+  .card-status {
+    font-size: 0.85rem;
   }
 }

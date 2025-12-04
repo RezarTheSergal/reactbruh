@@ -1,5 +1,4 @@
-/* components/SearchBox.css - Поисковая строка в стиле 2010-х */
-
+/* components/SearchBox.css */
 .search-box {
   display: flex;
   flex-direction: column;
@@ -7,18 +6,13 @@
   gap: 15px;
   margin-bottom: 25px;
   padding: 25px 20px;
-  background: linear-gradient(135deg, var(--bg-content) 0%, var(--bg-card) 100%);
+  background: var(--bg-content);
   border: 3px solid var(--border-color);
   border-radius: 0;
-  box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.6),
-    inset 0 0 30px rgba(111, 45, 189, 0.2);
-  backdrop-filter: blur(15px);
   position: relative;
   overflow: hidden;
 }
 
-/* Декоративная неоновая линия сверху */
 .search-box::before {
   content: '';
   position: absolute;
@@ -30,31 +24,8 @@
     var(--neon-cyan) 0%, 
     var(--neon-pink) 50%, 
     var(--neon-purple) 100%);
-  animation: searchGlow 3s linear infinite;
 }
 
-/* Сканирующая линия */
-.search-box::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(0, 255, 255, 0.1), 
-    transparent);
-  animation: searchScan 2s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes searchScan {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* Wrapper для input с эффектами */
 .search-input-wrapper {
   width: 100%;
   max-width: 500px;
@@ -66,280 +37,35 @@
   padding: 15px 50px 15px 20px;
   border: 3px solid var(--border-color);
   border-radius: 0;
-  font-family: 'Courier New', 'Lucida Console', monospace;
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
   background: var(--bg-input);
   color: var(--text-primary);
   box-sizing: border-box;
   transition: all 0.3s ease;
-  box-shadow: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 0 0 var(--glow-color);
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-
-/* Иконка поиска */
-.search-box input::before {
-  content: '🔍';
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2em;
-  pointer-events: none;
-}
-
-.search-box input::placeholder {
-  color: var(--text-muted);
-  opacity: 0.8;
-  font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.search-box input:hover {
-  border-color: var(--border-light);
-  background: var(--bg-card);
-  box-shadow: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 15px rgba(111, 45, 189, 0.3);
+  will-change: transform, box-shadow;
 }
 
 .search-box input:focus {
   outline: none;
   border-color: var(--accent-purple);
   background: var(--bg-card);
-  box-shadow: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 20px var(--glow-color),
-    0 0 40px var(--shadow-color);
   transform: scale(1.02);
 }
 
-/* Текст под поиском */
 .search-box span {
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-size: 0.95rem;
   color: var(--text-secondary);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  position: relative;
   padding: 5px 15px;
-  background: rgba(111, 45, 189, 0.2);
+  background: rgba(111, 45, 189, 0.1);
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
 }
 
 .search-box span::before {
   content: '▶';
   margin-right: 8px;
   color: var(--accent-purple);
-  animation: blink 1.5s ease-in-out infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-/* Счетчик результатов */
-.search-results-count {
-  color: var(--text-primary);
-  font-weight: 700;
-  text-shadow: 
-    0 0 10px var(--neon-cyan),
-    1px 1px 2px rgba(0, 0, 0, 0.9);
-}
-
-/* Кнопка очистки поиска (если добавите) */
-.search-clear-btn {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--danger);
-  color: var(--text-primary);
-  border: 2px solid var(--border-color);
-  width: 30px;
-  height: 30px;
-  border-radius: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2em;
-  font-weight: 900;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.search-box input:not(:placeholder-shown) ~ .search-clear-btn {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.search-clear-btn:hover {
-  background: #ff3377;
-  border-color: #ff3377;
-  box-shadow: 
-    0 4px 10px rgba(255, 0, 85, 0.6),
-    0 0 20px rgba(255, 0, 85, 0.4);
-  transform: translateY(-50%) rotate(90deg);
-}
-
-.search-clear-btn:focus {
-  outline: 3px solid var(--accent-purple);
-  outline-offset: 2px;
-}
-
-/* Подсветка при активном поиске */
-.search-box.searching {
-  border-color: var(--accent-purple);
-  box-shadow: 
-    0 6px 20px rgba(111, 45, 189, 0.8),
-    inset 0 0 40px rgba(224, 86, 253, 0.3),
-    0 0 40px var(--glow-color);
-}
-
-.search-box.searching::before {
-  animation: searchGlowActive 1s linear infinite;
-}
-
-@keyframes searchGlowActive {
-  0% { 
-    filter: hue-rotate(0deg) brightness(1.5);
-  }
-  100% { 
-    filter: hue-rotate(360deg) brightness(1.5);
-  }
-}
-
-/* Анимация печатания */
-@keyframes typing {
-  from { border-right-color: transparent; }
-  to { border-right-color: var(--accent-purple); }
-}
-
-.search-box input:focus {
-  border-right: 3px solid var(--accent-purple);
-  animation: typing 0.5s step-end infinite alternate;
-}
-
-/* Эффект при отсутствии результатов */
-.search-box.no-results span {
-  color: var(--danger);
-  text-shadow: 
-    0 0 10px var(--danger),
-    1px 1px 2px rgba(0, 0, 0, 0.9);
-  animation: shake 0.5s ease-in-out;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .search-box {
-    padding: 20px 15px;
-    gap: 12px;
-  }
-  
-  .search-box input {
-    padding: 12px 40px 12px 15px;
-    max-width: 100%;
-  }
-  
-  .search-clear-btn {
-    width: 28px;
-    height: 28px;
-    right: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-box {
-    padding: 15px 10px;
-  }
-  
-  .search-box input {
-    padding: 10px 35px 10px 12px;
-  }
-  
-  .search-box span {
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    letter-spacing: 1px;
-  }
-}
-
-/* Анимация появления */
-@keyframes slideInSearch {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.search-box {
-  animation: slideInSearch 0.5s ease-out;
-}
-
-/* Accessibility */
-.search-box label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Подсветка при фокусе на контейнере */
-.search-box:focus-within {
-  box-shadow: 
-    0 6px 20px rgba(111, 45, 189, 0.8),
-    inset 0 0 40px rgba(224, 86, 253, 0.3),
-    0 0 40px var(--glow-color);
-}
-
-/* Эффект "radar scan" при фокусе */
-.search-box:focus-within::after {
-  animation: radarScan 1.5s ease-out;
-}
-
-@keyframes radarScan {
-  0% {
-    left: -100%;
-    background: linear-gradient(90deg, 
-      transparent, 
-      rgba(0, 255, 255, 0.3), 
-      transparent);
-  }
-  100% {
-    left: 100%;
-    background: linear-gradient(90deg, 
-      transparent, 
-      rgba(0, 255, 255, 0.3), 
-      transparent);
-  }
-}
-
-/* Подсветка текста результатов */
-.search-highlight {
-  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--neon-pink) 100%);
-  color: var(--text-primary);
-  padding: 2px 6px;
-  font-weight: 900;
-  text-shadow: 
-    0 0 5px var(--neon-cyan),
-    1px 1px 2px rgba(0, 0, 0, 0.9);
-  border: 1px solid var(--neon-cyan);
-  box-shadow: 0 0 10px var(--glow-color);
 }

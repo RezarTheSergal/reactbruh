@@ -1,5 +1,4 @@
-/* components/TechnologyNotes.css - Заметки в стиле 2010-х */
-
+/* components/TechnologyNotes.css */
 .notes-section {
   margin-top: 0;
   padding-top: 0;
@@ -8,15 +7,11 @@
 .notes-section h4 {
   margin: 0 0 20px 0;
   color: var(--text-primary);
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: 1.2rem;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 
-    0 0 10px var(--neon-cyan),
-    0 0 20px var(--neon-pink),
-    2px 2px 4px rgba(0, 0, 0, 0.9);
   position: relative;
   padding-bottom: 15px;
 }
@@ -35,7 +30,6 @@
     var(--neon-pink) 50%, 
     var(--neon-cyan) 80%, 
     transparent 100%);
-  box-shadow: 0 0 10px var(--neon-purple);
 }
 
 /* Textarea в стиле 2010-х */
@@ -46,15 +40,12 @@
   border-radius: 0;
   resize: vertical;
   min-height: 120px;
-  font-family: 'Courier New', 'Lucida Console', monospace;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
   background: var(--bg-input);
   color: var(--text-primary);
   box-sizing: border-box;
   transition: all 0.3s ease;
-  box-shadow: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 0 0 var(--glow-color);
   line-height: 1.6;
   letter-spacing: 0.5px;
 }
@@ -63,7 +54,6 @@
   color: var(--text-muted);
   opacity: 0.8;
   font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .notes-section textarea:hover {
@@ -75,30 +65,24 @@
   outline: none;
   border-color: var(--accent-purple);
   background: var(--bg-card);
-  box-shadow: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 20px var(--glow-color),
-    0 0 40px var(--shadow-color);
   transform: scale(1.01);
 }
 
 /* Подсказка */
 .notes-hint {
   margin-top: 10px;
-  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  font-size: 0.9rem;
   color: var(--text-secondary);
   text-align: right;
   transition: all 0.3s ease;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   font-style: italic;
   padding: 5px 10px;
-  background: rgba(111, 45, 189, 0.2);
+  background: rgba(111, 45, 189, 0.1);
   border: 1px solid var(--border-color);
   border-radius: 0;
   display: inline-block;
   position: relative;
-  overflow: hidden;
 }
 
 .notes-hint::before {
@@ -108,40 +92,19 @@
 
 .notes-hint:hover {
   color: var(--accent-purple);
-  background: rgba(224, 86, 253, 0.3);
+  background: rgba(224, 86, 253, 0.2);
   border-color: var(--accent-purple);
   cursor: pointer;
-  box-shadow: 
-    0 0 15px var(--glow-color),
-    inset 0 0 10px rgba(224, 86, 253, 0.2);
   transform: translateX(-5px);
-}
-
-.notes-hint::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.notes-hint:hover::after {
-  width: 200px;
-  height: 200px;
 }
 
 /* Счетчик символов (если добавите) */
 .notes-counter {
   margin-top: 8px;
-  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  font-size: 0.85rem;
   color: var(--text-muted);
   text-align: right;
-  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-family: 'Courier New', monospace;
   letter-spacing: 1px;
 }
 
@@ -165,10 +128,12 @@
 @media (max-width: 480px) {
   .notes-section h4 {
     padding-bottom: 10px;
+    font-size: 1rem;
   }
   
   .notes-section textarea {
     padding: 10px;
+    font-size: 0.9rem;
   }
   
   .notes-hint {
@@ -177,7 +142,7 @@
   }
 }
 
-/* Анимация появления */
+/* Анимация появления (оптимизирована) */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -191,18 +156,13 @@
 
 .notes-section {
   animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
 }
 
 .notes-section textarea:invalid {
   border-color: var(--danger);
-  box-shadow: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 15px rgba(255, 0, 85, 0.5);
 }
 
 .notes-section textarea:valid:not(:placeholder-shown) {
   border-color: var(--success);
-  box-shadow: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 15px rgba(0, 255, 136, 0.3);
 }

@@ -1,17 +1,15 @@
-/* pages/Settings.css - Настройки в стиле 2010-х */
-
+/* pages/Settings.css */
 .page {
   width: 100%;
   max-width: 100%;
-  background: linear-gradient(135deg, var(--bg-content) 0%, var(--bg-card) 100%);
+  background: var(--bg-content);
   border: 3px solid var(--border-color);
   border-radius: 0;
   padding: 40px 20px;
   margin: 0;
   box-shadow: 
-    inset 0 0 30px rgba(111, 45, 189, 0.3),
-    0 0 40px var(--shadow-color),
-    0 8px 20px rgba(0, 0, 0, 0.6);
+    inset 0 0 20px rgba(111, 45, 189, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.3);
   position: relative;
 }
 
@@ -25,24 +23,18 @@
 .page-header h1 {
   margin: 0 0 15px 0;
   color: var(--accent-purple);
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: 2.5rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 4px;
-  text-shadow: 
-    0 0 10px var(--neon-purple),
-    0 0 20px var(--neon-purple),
-    2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .page-header p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-size: 1.1rem;
 }
 
-/* Форма настроек */
 .settings-form {
   display: flex;
   flex-direction: column;
@@ -54,53 +46,34 @@
 }
 
 .setting-group {
-  background: linear-gradient(90deg, var(--bg-input) 0%, var(--bg-card) 100%);
+  background: var(--bg-input);
   padding: 30px;
   border: 3px solid var(--border-color);
   border-left: 8px solid var(--primary-purple);
-  box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.5),
-    inset 0 0 30px rgba(111, 45, 189, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   position: relative;
-}
-
-.setting-group::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    var(--neon-purple) 0%, 
-    var(--neon-pink) 50%, 
-    var(--neon-cyan) 100%);
 }
 
 .setting-group h3 {
   margin: 0 0 20px 0;
   color: var(--secondary-purple);
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 
-    0 0 8px var(--neon-cyan),
-    1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .setting-item {
   margin-bottom: 20px;
   padding: 15px;
-  background: rgba(42, 24, 69, 0.5);
+  background: rgba(42, 24, 69, 0.3);
   border: 2px solid var(--border-light);
   transition: all 0.3s ease;
 }
 
 .setting-item:hover {
-  background: rgba(61, 42, 92, 0.7);
+  background: rgba(61, 42, 92, 0.5);
   border-color: var(--accent-purple);
-  box-shadow: 0 0 15px rgba(224, 86, 253, 0.3);
 }
 
 .setting-item:last-child {
@@ -112,14 +85,13 @@
   align-items: center;
   gap: 15px;
   color: var(--text-primary);
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-size: 1.05rem;
   cursor: pointer;
   font-weight: 500;
   letter-spacing: 1px;
   user-select: none;
 }
 
-/* Кастомный чекбокс в стиле 2010-х */
 .setting-item input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -135,15 +107,11 @@
 
 .setting-item input[type="checkbox"]:hover {
   border-color: var(--border-light);
-  background: var(--bg-card);
 }
 
 .setting-item input[type="checkbox"]:checked {
-  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+  background: var(--accent-purple);
   border-color: var(--accent-purple);
-  box-shadow: 
-    0 0 15px var(--glow-color),
-    inset 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .setting-item input[type="checkbox"]:checked::after {
@@ -155,15 +123,8 @@
   color: var(--text-primary);
   font-size: 18px;
   font-weight: 900;
-  text-shadow: 0 0 5px var(--neon-pink);
 }
 
-.setting-item input[type="checkbox"]:focus {
-  outline: 3px solid var(--accent-purple);
-  outline-offset: 2px;
-}
-
-/* Select в стиле 2010-х */
 .setting-item select {
   margin-left: auto;
   padding: 8px 15px;
@@ -171,8 +132,8 @@
   border-radius: 0;
   background: var(--bg-input);
   color: var(--text-primary);
-  font-family: 'Courier New', 'Lucida Console', monospace;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 150px;
@@ -186,10 +147,8 @@
 .setting-item select:focus {
   outline: none;
   border-color: var(--accent-purple);
-  box-shadow: 0 0 15px var(--glow-color);
 }
 
-/* Кнопки действий */
 .setting-actions {
   display: flex;
   gap: 20px;
@@ -203,78 +162,47 @@
   border: 3px solid var(--border-color);
   border-radius: 0;
   cursor: pointer;
-  font-family: 'Courier New', 'Lucida Console', monospace;
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(111, 45, 189, 0.2);
   text-decoration: none;
   display: inline-block;
   text-align: center;
   position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.btn:hover::before {
-  width: 300px;
-  height: 300px;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+  background: var(--primary-purple);
   color: var(--text-primary);
   border-color: var(--border-light);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--secondary-purple) 0%, var(--accent-purple) 100%);
-  box-shadow: 
-    0 6px 20px var(--shadow-color),
-    0 0 30px var(--glow-color);
+  background: var(--accent-purple);
   transform: translateY(-3px);
 }
 
 .btn-danger {
-  background: linear-gradient(135deg, #990033 0%, var(--danger) 100%);
+  background: var(--danger);
   color: var(--text-primary);
   border-color: var(--danger);
 }
 
 .btn-danger:hover {
-  background: linear-gradient(135deg, var(--danger) 0%, #ff3377 100%);
-  box-shadow: 
-    0 6px 20px rgba(255, 0, 85, 0.6),
-    0 0 30px rgba(255, 0, 85, 0.4);
+  background: #ff3377;
   transform: translateY(-3px);
 }
 
-/* Информационный блок */
 .app-info {
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-input) 100%);
+  background: var(--bg-card);
   padding: 30px;
   border: 3px solid var(--border-color);
   border-top: 8px solid var(--info);
   text-align: center;
-  box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.5),
-    inset 0 0 30px rgba(0, 204, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -282,28 +210,19 @@
 .app-info h3 {
   margin: 0 0 20px 0;
   color: var(--info);
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 
-    0 0 10px var(--neon-cyan),
-    1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .app-info p {
   margin: 10px 0;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-size: 1rem;
   color: var(--text-secondary);
   letter-spacing: 1px;
 }
 
-.app-info p strong {
-  color: var(--text-primary);
-  font-weight: 700;
-}
-
-/* Адаптивность */
 @media (max-width: 768px) {
   .page {
     padding: 30px 15px;
@@ -315,30 +234,9 @@
   
   .setting-actions {
     flex-direction: column;
-    align-items: stretch;
   }
   
   .btn {
     width: 100%;
-    max-width: none;
-  }
-  
-  .setting-item label {
-    flex-wrap: wrap;
-  }
-  
-  .setting-item select {
-    margin-left: 0;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .page {
-    padding: 20px 10px;
-  }
-  
-  .setting-group {
-    padding: 15px;
   }
 }

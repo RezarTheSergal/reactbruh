@@ -29,14 +29,16 @@ function TechnologyCard({ title, description, status, notes, onStatusChange, onN
     return (
         <div
             className={`technology-card ${statusClass}`}
-            onClick={onStatusChange} // Обработчик клика
-            role="button"
             tabIndex="0"
             aria-label={`Карточка "${title}". Текущий статус: ${statusText}. Нажмите для изменения статуса.`}
         >
             <h3 className="card-title">{title}</h3>
             <p className="card-description">{description}</p>
-            <div className="card-status">
+            <div 
+            className="card-status"
+            onClick={onStatusChange} // Обработчик клика
+            role="button"
+            >
                 {/* Используем тег img для отображения PNG-иконки */}
                 <img src={statusIcon} alt={statusText} className="status-icon" />
                 <span className="status-text">{statusText}</span>
