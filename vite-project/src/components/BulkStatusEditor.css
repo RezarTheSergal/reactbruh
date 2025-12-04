@@ -1,0 +1,338 @@
+/* components/BulkStatusEditor.css */
+.bulk-status-editor {
+  background: var(--bg-content);
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.bulk-status-editor h2 {
+  color: var(--accent-purple);
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.status-message {
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+  border: 3px solid var(--border-color);
+  background: rgba(111, 45, 189, 0.1);
+}
+
+.filters-section {
+  background: var(--bg-input);
+  padding: 20px;
+  border: 3px solid var(--border-color);
+  margin-bottom: 25px;
+}
+
+.filters-section h3 {
+  margin: 0 0 15px 0;
+  color: var(--secondary-purple);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.filter-group select,
+.filter-group input {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid var(--border-color);
+  background: var(--bg-content);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+}
+
+.field-hint {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.new-status-section {
+  background: var(--bg-input);
+  padding: 20px;
+  border: 3px solid var(--border-color);
+  margin-bottom: 25px;
+}
+
+.new-status-section h3 {
+  margin: 0 0 15px 0;
+  color: var(--secondary-purple);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.status-selector select {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid var(--border-color);
+  background: var(--bg-content);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.status-selector select:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+}
+
+.technologies-section {
+  background: var(--bg-input);
+  padding: 20px;
+  border: 3px solid var(--border-color);
+  margin-bottom: 25px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h3 {
+  margin: 0;
+  color: var(--secondary-purple);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.selection-count {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-left: 10px;
+  font-weight: normal;
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select-all input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.select-all label {
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.technologies-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.technology-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.technology-item:hover {
+  background: rgba(111, 45, 189, 0.1);
+}
+
+.technology-item.selected {
+  background: rgba(224, 86, 253, 0.1);
+  border-left: 4px solid var(--accent-purple);
+}
+
+.technology-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.technology-info {
+  flex: 1;
+  cursor: pointer;
+}
+
+.tech-title {
+  display: block;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.tech-meta {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 20px;
+  border-top: 2px dashed var(--border-color);
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 25px;
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--primary-purple);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-purple);
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--bg-input);
+  color: var(--text-secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 0, 51, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: var(--bg-content);
+  border: 3px solid var(--border-color);
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  margin: 0 0 15px 0;
+  color: var(--accent-purple);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.selected-technologies {
+  margin: 20px 0;
+  padding: 15px;
+  background: var(--bg-input);
+  border: 2px solid var(--border-color);
+}
+
+.selected-technologies ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.selected-technologies li {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.selected-technologies li:last-child {
+  border-bottom: none;
+}
+
+.status-change {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-left: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .bulk-status-editor {
+    padding: 20px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}

@@ -1,0 +1,138 @@
+/* components/WorkingAccessibleForm.css */
+.accessible-form-container {
+  background: var(--bg-content);
+  border: 3px solid var(--border-color);
+  border-radius: 0;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.accessible-form-container h1 {
+  color: var(--accent-purple);
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.success-message {
+  background: rgba(0, 204, 102, 0.1);
+  border: 3px solid var(--status-completed);
+  color: var(--status-completed);
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.form-field label span {
+  color: var(--danger);
+}
+
+.form-field input,
+.form-field textarea {
+  padding: 12px 15px;
+  border: 3px solid var(--border-color);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: var(--bg-card);
+}
+
+.form-field input.error,
+.form-field textarea.error {
+  border-color: var(--danger);
+}
+
+.error-text {
+  color: var(--danger);
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+button[type="submit"] {
+  padding: 15px 30px;
+  border: 3px solid var(--border-light);
+  background: var(--primary-purple);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: var(--accent-purple);
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .accessible-form-container {
+    padding: 20px;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    padding: 10px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+  }
+}

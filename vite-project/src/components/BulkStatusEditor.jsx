@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './BulkStatusEditor.css';
 
 function BulkStatusEditor({ technologies = [], onUpdate, onCancel }) {
     // состояние для выбранных технологий (массив ID)

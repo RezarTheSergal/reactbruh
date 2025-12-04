@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-
-function ImprovedDataImportExport() {
+import './DataImportExport.css';
+function DataImportExport() {
     // состояние для списка технологий
     const [technologies, setTechnologies] = useState([]);
 
@@ -514,4 +514,4 @@ function ImprovedDataImportExport() {
     );
 }
 
-export default ImprovedDataImportExport;
+export default DataImportExport;

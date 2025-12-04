@@ -1,4 +1,4 @@
-// components/Navigation.js
+// components/Navigation.jsx
 import { Link, useLocation } from 'react-router-dom';
 import './Navigation.css'; // Импортируем файл стилей для навигации
 
@@ -27,15 +27,47 @@ function Navigation() {
                         to="/technologies"
                         className={`nav-link ${location.pathname === '/technologies' ? 'active' : ''}`}
                     >
-                        Все
+                        Все технологии
                     </Link>
                 </li>
                 <li>
                     <Link
-                        to="/add-technology"
-                        className={`nav-link ${location.pathname === '/add-technology' ? 'active' : ''}`}
+                        to="/new-technology"
+                        className={`nav-link ${location.pathname === '/new-technology' ? 'active' : ''}`}
                     >
                         Добавить
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/bulk-editor"
+                        className={`nav-link ${location.pathname === '/bulk-editor' ? 'active' : ''}`}
+                    >
+                        Массовое редактирование
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/deadlines"
+                        className={`nav-link ${location.pathname === '/deadlines' ? 'active' : ''}`}
+                    >
+                        Дедлайны
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/import-export"
+                        className={`nav-link ${location.pathname === '/import-export' ? 'active' : ''}`}
+                    >
+                        Импорт/Экспорт
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/accessible-form"
+                        className={`nav-link ${location.pathname === '/accessible-form' ? 'active' : ''}`}
+                    >
+                        Контактная форма
                     </Link>
                 </li>
                 <li>

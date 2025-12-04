@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import './DeadlineForm.css';
 function DeadlineForm({ onSave, onCancel, initialData = {} }) {
     // состояние формы с начальными значениями
     const [formData, setFormData] = useState({

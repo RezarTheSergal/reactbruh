@@ -109,7 +109,6 @@ function AppContent() {
     const tech = technologies.find(t => t.id === techId);
     try {
       updateNotes(techId, notes);
-      showSuccess(`Заметки обновлены: ${tech?.title || 'технология'}`);
     } catch (error) {
       showError('Ошибка при сохранении заметок');
     }
@@ -205,6 +204,12 @@ function AppContent() {
           
           {/* Страница настроек */}
           <Route path="/settings" element={<Settings />} />
+          
+          <Route path="/bulk-editor" element={<BulkEditorPage />} />
+          <Route path="/deadlines" element={<DeadlinePage />} />
+          <Route path="/import-export" element={<ImportExportPage />} />
+          <Route path="/accessible-form" element={<AccessibleFormPage />} />
+          <Route path="/new-technology" element={<TechnologyFormPage />} />
         </Routes>
       </div>
     </Router>
